@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hi, Trent.</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+
+            background:
+                radial-gradient(circle at 20% 20%, #222 0%, transparent 30%),
+                radial-gradient(circle at 80% 80%, #151515 0%, transparent 35%),
+                #050505;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+        }
+
+        /* Background glow */
+
+        body::before {
+            content: "";
+            position: absolute;
+            width: 600px;
+            height: 600px;
+
+            background: #ffffff;
+            opacity: 0.025;
+
+            border-radius: 50%;
+            filter: blur(100px);
+
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(-100px, -50px);
+            }
+
+            50% {
+                transform: translate(100px, 50px);
+            }
+        }
+
+        /* Main card */
+
+        .card {
+            position: relative;
+            z-index: 2;
+
+            width: 90%;
+            max-width: 650px;
+
+            padding: 70px 50px;
+
+            text-align: center;
+
+            background: rgba(20, 20, 20, 0.75);
+
+            border: 1px solid rgba(255, 255, 255, 0.12);
+
+            border-radius: 28px;
+
+            backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.7),
+                inset 0 0 30px rgba(255, 255, 255, 0.02);
+
+            animation: appear 1s ease forwards;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Small text */
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            font-size: 12px;
+            color: #888;
+
+            margin-bottom: 20px;
+        }
+
+        /* Main title */
+
+        h1 {
+            font-size: clamp(55px, 10vw, 90px);
+            font-weight: 700;
+
+            letter-spacing: -4px;
+
+            margin-bottom: 20px;
+
+            background: linear-gradient(
+                120deg,
+                #ffffff,
+                #999999
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: #999;
+            font-size: 17px;
+            line-height: 1.7;
+
+            max-width: 450px;
+            margin: 0 auto 40px;
+        }
+
+        /* Decorative line */
+
+        .line {
+            width: 70px;
+            height: 1px;
+
+            background: #777;
+
+            margin: 0 auto 35px;
+        }
+
+        /* Button */
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+
+            padding: 16px 30px;
+
+            border-radius: 50px;
+
+            background: white;
+            color: black;
+
+            text-decoration: none;
+
+            font-weight: bold;
+            font-size: 15px;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                background 0.3s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-4px);
+
+            background: #eeeeee;
+
+            box-shadow:
+                0 15px 35px rgba(255, 255, 255, 0.15);
+        }
+
+        .play {
+            font-size: 13px;
+        }
+
+        /* Bottom text */
+
+        .footer {
+            margin-top: 45px;
+
+            font-size: 11px;
+            letter-spacing: 3px;
+
+            color: #555;
+
+            text-transform: uppercase;
+        }
+
+        /* Little decorative circles */
+
+        .dot {
+            position: absolute;
+
+            width: 5px;
+            height: 5px;
+
+            background: white;
+
+            border-radius: 50%;
+
+            opacity: 0.4;
+
+            animation: pulse 3s infinite;
+        }
+
+        .dot.one {
+            top: 15%;
+            left: 15%;
+        }
+
+        .dot.two {
+            top: 75%;
+            right: 15%;
+            animation-delay: 1s;
+        }
+
+        .dot.three {
+            bottom: 15%;
+            left: 25%;
+            animation-delay: 2s;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.15;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.7;
+                transform: scale(2);
+            }
+        }
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            .card {
+                padding: 50px 25px;
+            }
+
+            h1 {
+                letter-spacing: -2px;
+            }
+
+            .subtitle {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Decorative background dots -->
+
+    <div class="dot one"></div>
+    <div class="dot two"></div>
+    <div class="dot three"></div>
+
+
+    <!-- Main website -->
+
+    <main class="card">
+
+        <div class="eyebrow">
+            A message for you
+        </div>
+
+        <h1>Hi, Trent.</h1>
+
+        <div class="line"></div>
+
+        <p class="subtitle">
+            You have arrived at a very important website.
+            There is absolutely nothing suspicious happening here.
+        </p>
+
+        <a
+            class="button"
+            href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            <span class="play">▶</span>
+
+            Open Something Important
+
+        </a>
+
+        <div class="footer">
+            You have been warned.
+        </div>
+
+    </main>
+
+</body>
+</html>
